@@ -8,6 +8,7 @@ node_modules/*
 public/javascript/ActionheroWebsocketClient.js
 dist
 
+.*.swp
 .secrets
 .env
 

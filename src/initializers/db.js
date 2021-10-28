@@ -1,8 +1,16 @@
 import { Initializer, api, log } from "actionhero";
 const { MongoClient } = require('mongodb');
 const Promise = require('bluebird')
-const uri = process.env.DB_URI;
 
+try {
+  require('dotenv').config();
+}
+catch(dotEnErr){
+  console.error(dotEnErr);
+  process.exit();
+}
+
+const uri = process.env.DB_URI;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const connect = () => {
   return new Promise(  (res, rej) => client.connect(err => {
@@ -12,13 +20,11 @@ const connect = () => {
     }
 
     let db = client.db("college_db");
-    console.log(db)
+    console.log('Connected to mongodb')
     // perform actions on the collection object
     return res(db);
   }));
 }
-
-
 
 export class myInitializer extends Initializer {
   constructor() {
