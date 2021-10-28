@@ -3,7 +3,9 @@
 Open iTerm2 or terminal, or visual studio console
 
 if you haven't already, Install NVM, to install recent version of node.js
-```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash```
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+```
 
 Then add this to bottom of your .bash_profile file in your home directory
 ```
