@@ -1,4 +1,5 @@
-import { Initializer, api, log } from "actionhero";
+'use strict'
+const { Initializer, api, log } = require('actionhero')
 const { MongoClient } = require('mongodb');
 const Promise = require('bluebird')
 
@@ -26,7 +27,7 @@ const connect = () => {
   }));
 }
 
-export class myInitializer extends Initializer {
+module.exports = class Db extends Initializer {
   constructor() {
     super();
     this.name = "dbConn";
