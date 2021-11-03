@@ -1,5 +1,5 @@
 'use strict'
-const { Initializer, api, log } = require('actionhero')
+const { Initializer, api } = require('actionhero')
 const { MongoClient } = require('mongodb');
 const Promise = require('bluebird')
 
@@ -37,7 +37,7 @@ module.exports = class Db extends Initializer {
   }
 
   async initialize() {
-    log("top of initialized", "debug", this.name);
+    console.log("top of initialized", "debug", this.name);
     try {
       api.db = await connect();
     }
@@ -46,16 +46,16 @@ module.exports = class Db extends Initializer {
       process.exit()
     }
 
-    log("I initialized", "debug", this.name);
+    console.log("I initialized", "debug", this.name);
   }
 
   async start() {
     //await api.StuffInit.startStuff();
-    log("I started", "debug", this.name);
+    console.log("I started", "debug", this.name);
   }
 
   async stop() {
     //await api.StuffInit.stopStuff();
-    log("I stopped", "debug", this.name);
+    console.log("I stopped", "debug", this.name);
   }
 }
