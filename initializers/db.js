@@ -2,6 +2,7 @@
 const { Initializer, api } = require('actionhero')
 const { MongoClient } = require('mongodb');
 const Promise = require('bluebird')
+const repl = require('repl')
 
 try {
   require('dotenv').config();
@@ -47,6 +48,10 @@ module.exports = class Db extends Initializer {
     }
 
     console.log("I initialized", "debug", this.name);
+    setTimeout(()=>{
+      api.R = repl.start("uv-api> ")
+      api.R.context.api = api;
+    },5000)
   }
 
   async start() {

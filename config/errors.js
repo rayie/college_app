@@ -60,6 +60,9 @@ exports['default'] = {
 
       // user requested an unknown action
       unknownAction: (data) => {
+        console.log(data.connection.rawConnection.req.url)
+        let action = data.connection.rawConnection.req.url;
+        return "Unknown api action: " + action; 
         return data.connection.localize('actionhero.errors.unknownAction')
       },
 

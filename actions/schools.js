@@ -34,7 +34,7 @@ module.exports = class SchoolsGetMasterList extends ActionHero.Action {
       throw error;
     }
 
-    console.log("got " + rr.length + " records from schools collection")
+    console.log("you me here o" + rr.length + " records from schools collection")
     console.log(rr);
     data.response.schools = rr;
   }
