@@ -25,13 +25,17 @@ module.exports = class SchoolsGetMasterList extends ActionHero.Action {
   async run (data) {
     const api = ActionHero.api
 
-    let rr  = [
-        { nm: "UCLA", city:"Los Angeles" },
-    ]
+    let rr  = [ ]
+    try {
+      rr = await api.db.collection('schools').find({}).toArray()
+    }
+    catch(error){
+      console.error(error)
+      throw error;
+    }
 
-
-    rr = await api.db.collection('schools').find({}).toArray()
-
+    console.log("got " + rr.length + " records from schools collection")
+    console.log(rr);
     data.response.schools = rr;
   }
 }
